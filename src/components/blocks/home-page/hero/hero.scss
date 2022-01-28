@@ -1,0 +1,71 @@
+.hero {
+  padding: 132px 0 48px;
+  background-image: url(../img/hero-background.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top center;
+  margin-bottom: 16px;
+  h1 {
+    margin-bottom: 8px;
+    max-width: 900px;
+  }
+  .site-description {
+    max-width: 956px;
+  }
+  .btn {
+    &-primary {
+      margin: 32px auto 0;
+      max-width: 100%;
+    }
+    &-secondary {
+      margin: 24px auto 0;
+      max-width: 100%;
+    }
+  }
+}
+
+// Media 480px =====>
+@media screen and (min-width: 480px) {
+  .hero {
+    .btn {
+      &-primary,
+      &-secondary {
+        max-width: 320px;
+      }
+    }
+    .site-description {
+      font-size: 24px;
+    }
+  }
+}
+
+// Media 768px =====>
+@media screen and (min-width: 768px) {
+	.hero {
+    h1 {
+      margin-bottom: 12px;
+    }
+    .btn {
+      &-primary,
+      &-secondary {
+        max-width: 268px;
+      }
+    }
+    .btn {
+      &-primary {
+        margin: 32px 0 0 0;
+      }
+      &-secondary {
+        margin: 124px 0 0 auto;
+      }
+    }
+  }
+}
+
+// Media 992px =====>
+@media screen and (min-width: 992px) {
+	.hero {
+    padding: 324px 0 64px;
+    margin-bottom: 90px;
+  }
+}

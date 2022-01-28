@@ -1,0 +1,365 @@
+html {
+	box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "HelveticaNeueCyr", sans-serif;
+  background-color: $color-background;
+}
+
+h1, h2, h3, h4, h5, h6, p, ul {
+  margin: 0;
+  padding: 0;
+}
+
+img {
+	max-width: 100%;
+}
+
+input,
+button,
+textarea {
+	font-family: inherit;
+}
+
+ul {
+	list-style: none;
+	padding: 0;
+}
+
+button {
+	border: none;
+	background: transparent;
+	cursor: pointer;
+	padding: 0;
+	outline: none;
+}
+
+.site-container {
+	max-width: 1920px;
+	width: 100%;
+	margin: 0 auto;
+}
+
+.container {
+	max-width: 1270px;
+	width: 100%;
+	margin: 0 auto;
+	padding: 0 15px;
+}
+
+.js {
+	&-lock {
+		overflow: hidden;
+	}
+}
+
+h1 {
+	color: $color-white;
+	font-size: 40px;
+	font-weight: 700;
+	line-height: 1.25;
+}
+
+h2 {
+	color: $color-green-1;
+	font-size: 40px;
+	font-weight: 500;
+	line-height: 1.2;
+}
+
+.btn {
+	&-primary {
+		text-decoration: none;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		max-width: 268px;
+		width: 100%;
+		height: 64px;
+		border-radius: 10px;
+		background-color: $color-green-1;
+		backdrop-filter: blur(4px);
+		transition: $transition-normal;
+		span {
+			color: #15404F;
+			font-size: 20px;
+			font-weight: 700;
+			line-height: 1;
+			transition: $transition-normal;
+		}
+		&:hover {
+			background-color: $color-green-2;
+			span {
+				color: #152F38;
+			}
+		}
+		&:active {
+			background-color: #91BEAD;
+			span {
+				color: #152F38;
+			}
+		}
+	}
+	&-secondary {
+		text-decoration: none;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		max-width: 268px;
+		width: 100%;
+		height: 64px;
+		border: 1px solid $color-white;
+		border-radius: 10px;
+		background-color: #5D6267;
+		backdrop-filter: blur(20px);
+		transition: $transition-normal;
+		span {
+			color: $color-white;
+			font-size: 20px;
+			font-weight: 700;
+			line-height: 1;
+			transition: $transition-normal;
+		}
+		&:hover {
+			background-color: $color-white;
+			span {
+				color: $color-gold-1;
+			}
+		}
+		&:active {
+			background-color: #DCE0E1;
+			span {
+				color: $color-gold-1;
+			}
+		}
+	}
+}
+
+.link {
+	&-primary {
+		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
+		text-decoration: none;
+		&__title {
+			display: none;
+			margin-right: 12px;
+			padding-right: 12px;
+			color: $color-white;
+			font-size: 20px;
+			font-weight: 400;
+			line-height: 1;
+			transition: $transition-normal;
+		}
+		&__circle {
+			position: relative;
+			max-width: 70px;
+			min-width: 70px;
+			max-height: 70px;
+			min-height: 70px;
+			border: 1px solid $color-white;
+			border-radius: 100px;
+			transition: $transition-normal;
+		}
+		&__arrow {
+			position: absolute;
+			top: 50%;
+			left: -12px;
+			transform: translateY(-50%);
+			width: 38px;
+			height: 1px;
+			background-color: $color-white;
+			border-bottom-right-radius: 1px;
+			border-top-right-radius: 1px;
+			transition: $transition-normal;
+			&::before,
+			&::after {
+				content: '';
+				position: absolute;
+				top: 0;
+				right: 0;
+				width: 8px;
+				height: 1px;
+				background-color: $color-white;
+				border-radius: 1px;
+				transition: $transition-normal;
+			}
+			&::before {
+				top: 0.5px;
+				transform: rotate(45deg);
+				transform-origin: right center;
+			}
+			&::after {
+				top: unset;
+				bottom: 0.5px;
+				transform: rotate(-45deg);
+				transform-origin: right center;
+			}
+		}
+		&:hover {
+			.link {
+				&-primary {
+					&__title {
+						color: $color-gold-1;
+					}
+					&__circle {
+						border-color: $color-gold-1;
+						transform: scale(1.2);
+					}
+					&__arrow {
+						background-color: $color-gold-1;
+						width: 64px;
+						&::before,
+						&::after {
+							background-color: $color-gold-1;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+.site-description {
+	color: $color-white;
+	font-size: 20px;
+	font-weight: 400;
+	line-height: 1.5;
+}
+
+.section-header {
+	margin-bottom: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.swiper {
+  &-navigation {
+    position: relative;
+    width: fit-content;
+    margin: 32px auto 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  &-button {
+    &-prev,
+    &-next {
+      position: relative;
+      top: unset;
+      left: unset;
+      right: unset;
+      margin-top: 0;
+      width: auto;
+      height: auto;
+      padding: 8px;
+			&:focus {
+				outline: none;
+			}
+      &::after {
+        display: none;
+      }
+      .link {
+        &-primary {
+          &__circle {
+            max-width: 42px;
+            min-width: 42px;
+            max-height: 42px;
+            min-height: 42px;
+          }
+          &__arrow {
+            left: -16px;
+          }
+          &:hover {
+            .link {
+              &-primary {
+                &__circle {
+                  transform: scale(1.1);
+                }
+                &__arrow {
+                  width: 48px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    &-prev {
+      .link {
+        &-primary {
+          transform: rotate(180deg);
+        }
+      }
+    }
+  }
+  &-pagination {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 20px;
+    .swiper-pagination-bullet {
+			position: relative;
+      min-width: 20px;
+      min-height: 20px;
+			max-width: 20px;
+      max-height: 20px;
+      background: transparent;
+      opacity: 1;
+			&::before {
+				content: '';
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				width: 12px;
+				height: 12px;
+				border-radius: 100px;
+				transform: translate(-50%, -50%);
+				background: rgba(255, 255, 255, 0.4);
+				transition: $transition-normal;
+			}
+      &-active {
+				&::before {
+					width: 100%;
+					height: 100%;
+					background: $color-gold-1;
+				}
+      }
+    }
+  }
+  .swiper-horizontal>.swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal, .swiper-pagination-custom, .swiper-pagination-fraction {
+    width: fit-content;
+    bottom: unset;
+    margin: 0 20px;
+  }
+}
+
+// Media 992px =====>
+@media screen and (min-width: 992px) {
+	h1 {
+		font-size: 50px;
+	}
+	h2 {
+		font-size: 70px;
+	}
+	.section-header {
+		margin-bottom: 50px;
+	}
+	.link {
+		&-primary {
+			&__title {
+				display: block;
+			}
+		}
+	}
+}

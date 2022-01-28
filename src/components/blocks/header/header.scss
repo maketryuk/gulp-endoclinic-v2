@@ -1,0 +1,501 @@
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+  }
+  100% {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+    visibility: visible;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+.header {
+  z-index: 100;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 15px 0;
+  transition: $transition-normal;
+  .container {
+    position: relative;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  .logo {
+    z-index: 100;
+    display: block;
+    max-width: 144px;
+    min-width: 144px;
+    max-height: 54px;
+    min-height: 54px;
+    img,
+    source {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  &-contacts {
+    z-index: 100;
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    &__item {
+      &:not(:last-child) {
+        margin-bottom: 12px;
+      }
+    }
+    &__link {
+      max-width: 60px;
+      min-width: 60px;
+      max-height: 60px;
+      min-height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: $color-background-nav-link;
+      border: 1px solid $color-white;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: $transition-normal;
+      i {
+        color: $color-white;
+        font-size: 26px;
+        transition: $transition-normal;
+      }
+      &:hover {
+        background: $color-white;
+        i {
+          color: $color-gold-1;
+        }
+      }
+      &:active {
+        background: $color-background-nav-link-active;
+      }
+    }
+  }
+  &-content {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #363636;
+    opacity: 0;
+    visibility: hidden;
+    display: none;
+    width: 100%;
+    padding: 186px 0 32px;
+    transition: $transition-high;
+    .container {
+      display: block;
+    }
+    &__item {
+      color: $color-white;
+      font-size: 20px;
+      font-weight: 400;
+      line-height: 1.5;
+      &:not(:last-child) {
+        margin-bottom: 8px;
+      }
+    }
+    &__link {
+      display: inline-block;
+      text-decoration: none;
+      color: $color-white;
+      font-size: 20px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+    &__footer {
+      margin-top: 144px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      .btn {
+        &-secondary {
+          max-width: 282px;
+          height: 74px;
+        }
+      }
+    }
+  }
+  .burger {
+    z-index: 100;
+    position: absolute;
+    top: 0;
+    right: 15px;
+    max-width: 60px;
+    min-width: 60px;
+    max-height: 60px;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: $color-background-nav-link;
+    border: 1px solid $color-white;
+    border-radius: 6px;
+    transition: $transition-normal;
+    &__wrapper {
+      position: relative;
+      max-width: 26px;
+      max-height: 16px;
+      min-width: 26px;
+      min-height: 16px;
+      &::after,
+      &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        transform: translateY(-50%);
+        width: 100%;
+        height: 2px;
+        background: $color-white;
+        border-radius: 6px;
+        transition: $transition-normal;
+      }
+      &::before {
+        top: 1px;
+      }
+      &::after {
+        bottom: -1px;
+      }
+    }
+    &__line {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+      width: 100%;
+      height: 2px;
+      background: $color-white;
+      border-radius: 6px;
+      transition: $transition-normal;
+    }
+    &:hover {
+      background: $color-white;
+      .burger {
+        &__wrapper {
+          &::before,
+          &::after {
+            background: $color-gold-1;
+          }
+        }
+        &__line {
+          background: $color-gold-1;
+        }
+      }
+    }
+    &:active {
+      background-color: $color-background-nav-link-active;
+    }
+  }
+  &.js-scroll-down {
+    background: $color-background;
+  }
+  &.js-nav-open {
+    .burger {
+      background: $color-white;
+      &__wrapper {
+        &::before,
+        &::after {
+          background: $color-gold-1;
+        }
+        &::before {
+          transform: rotate(45deg);
+          top: 50%;
+        }
+        &::after {
+          transform: rotate(-45deg);
+          top: 50%;
+        }
+      }
+      &__line {
+        opacity: 0;
+        visibility: hidden;
+        background: $color-gold-1;
+      }
+    }
+    .nav {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}
+
+.nav {
+  z-index: 99;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: $color-background;
+  padding: 124px 15px 15px;
+  overflow: auto;
+  opacity: 0;
+  visibility: hidden;
+  transition: $transition-normal;
+  &__item {
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+  }
+  &__link {
+    text-decoration: none;
+    .title {
+      display: block;
+      color: $color-green-1;
+      font-size: 40px;
+      font-weight: 500;
+      line-height: 1.25;
+      transition: $transition-normal;
+    }
+    .symbol {
+      display: none;
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      color: $color-symbol-and-number;
+      font-size: 36px;
+      font-weight: 700;
+      line-height: 1;
+      transition: $transition-normal;
+    }
+    .number {
+      display: none;
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      color: $color-symbol-and-number;
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 1;
+      transition: $transition-normal;
+    }
+    &:hover {
+      .title {
+        color: $color-white;
+      }
+    }
+    &:active {
+      .title {
+        color: $color-background-nav-link-active;
+      }
+    }
+  }
+}
+
+// Media 992px =====>
+@media screen and (min-width: 992px) {
+  .header {
+    padding: 30px 0;
+    transition: $transition-high;
+    .container {
+      flex-direction: column;
+      align-items: flex-start;
+      min-height: 100px;
+    }
+    .logo {
+      margin-top: 18px;
+      max-width: 179px;
+      min-width: 179px;
+      max-height: 65px;
+      min-height: 65px;
+    }
+    &-contacts {
+      opacity: 0;
+      visibility: hidden;
+      position: absolute;
+      top: 0;
+      right: 127px;
+      &__list {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: stretch;
+        justify-content: flex-end;
+        margin: -6px;
+      }
+      &__item {
+        padding: 6px;
+        flex: 0 0 auto;
+        &:not(:last-child) {
+          margin: 0;
+        }
+      }
+      &__link {
+        max-width: 100px;
+        min-width: 100px;
+        max-height: 100px;
+        min-height: 100px;
+        border-radius: 10px;
+        i {
+          font-size: 45px;
+        }
+      }
+    }
+    &-content {
+      display: block;
+    }
+    .burger {
+      opacity: 0;
+      visibility: hidden;
+      max-width: 100px;
+      min-width: 100px;
+      max-height: 100px;
+      min-height: 100px;
+      border-radius: 10px;
+      &__wrapper {
+        max-width: 44px;
+        min-width: 44px;
+        max-height: 28px;
+        min-height: 28px;
+        &::before,
+        &::after {
+          height: 4px;
+          border-radius: 10px;
+        }
+        &::before {
+          top: 2px;
+        }
+      }
+      &__line {
+        height: 4px;
+        border-radius: 10px;
+      }
+    }
+    &.js-scroll-down {
+      background: transparent;
+      .burger,
+      .header-contacts {
+        animation: fadeIn 0.4s ease-in-out forwards;
+        animation-direction: normal;
+        animation-delay: 0.4s;
+      }
+      .nav {
+        animation: fadeOut 0.4s ease-in-out forwards;
+        animation-direction: normal;
+      }
+    }
+    &.js-scroll-top {
+      .header-content {
+        opacity: 0;
+        visibility: hidden;
+      }
+      .burger,
+      .header-contacts {
+        animation: fadeOut 0.4s ease-in-out forwards;
+        animation-direction: normal;
+      }
+      .nav {
+        animation: fadeIn 0.4s ease-in-out forwards;
+        animation-direction: normal;
+      }
+    }
+    &.js-nav-open {
+      .nav,
+      .header-content {
+        animation: fadeIn 0.4s ease-in-out forwards;
+        animation-direction: normal;
+      }
+      .header-contacts {
+        animation: fadeOut 0.4s ease-in-out forwards;
+        animation-direction: normal;
+      }
+    }
+    &.js-nav-close {
+      .nav,
+      .header-content {
+        animation: fadeOut 0.4s ease-in-out forwards;
+        animation-direction: normal;
+      }
+      .header-contacts {
+        animation: fadeIn 0.4s ease-in-out forwards;
+        animation-direction: normal;
+      }
+    }
+  }
+  .nav {
+    position: absolute;
+    right: 15px;
+    opacity: 1;
+    visibility: visible;
+    background: transparent;
+    padding: 0;
+    max-width: 436px;
+    height: fit-content;
+    overflow: unset;
+    margin-left: auto;
+    &__list {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: stretch;
+      justify-content: flex-end;
+      margin: -6px;
+    }
+    &__item {
+      flex: 0 0 auto;
+      max-width: 112px;
+      min-width: 112px;
+      max-height: 112px;
+      min-height: 112px;
+      padding: 6px;
+      &:not(:last-child) {
+        margin: 0;
+      }
+    }
+    &__link {
+      position: relative;
+      max-width: 100px;
+      min-width: 100px;
+      max-height: 100px;
+      min-height: 100px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-start;
+      padding: 8px;
+      background: $color-background-nav-link;
+      border: 1px solid $color-white;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: $transition-normal;
+      .title {
+        color: $color-white;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 1;
+      }
+      .symbol,
+      .number {
+        display: inline-block;
+      }
+      &:hover {
+        background: $color-white;
+        .title,
+        .symbol,
+        .number {
+          color: $color-gold-1
+        }
+      }
+      &:active {
+        background: $color-background-nav-link-active;
+        .title,
+        .symbol,
+        .number {
+          color: $color-gold-1
+        }
+      }
+    }
+  }
+}
