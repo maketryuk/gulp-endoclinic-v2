@@ -8,7 +8,7 @@ if (window.matchMedia("(min-width: 992px)").matches) {
   })
 } else {
   $('.technology-card').removeClass('js-active')
-  $('.technology-card__body').css('display', 'none')
+  // $('.technology-card__body').css('display', 'none')
   $('.technology-card').click(function () {
     $(this).toggleClass('js-active')
     $('.technology-card').not($(this)).removeClass('js-active')

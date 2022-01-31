@@ -37,9 +37,10 @@
       border-radius: 10px;
     }
     &__body {
-      display: none;
-      padding-top: 20px;
-      max-width: 450px;
+      // display: none;
+      p {
+        display: none;
+      }
     }
     &__title {
       color: #152F38;
@@ -55,7 +56,7 @@
         height: 100%;
       }
     }
-    &__link {
+    .link-primary {
       opacity: 0;
       visibility: hidden;
       position: absolute;
@@ -63,40 +64,21 @@
       left: 0;
       width: 100%;
       height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
       background: rgba(0, 0, 0, 0.5);
-      text-decoration: none;
+      justify-content: center;
       transition: $transition-normal;
-      span {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 60px;
-        max-width: 180px;
-        width: 100%;
-        color: #15404F;
-        font-size: 16px;
+      &__title {
+        display: block;
         font-weight: 700;
-        background: $color-green-1;
-        border-radius: 10px;
       }
-      &:hover {
-        span {
-          background-color: $color-green-2;
-          color: #152F38;
-        }
+      &__circle {
+        display: none;
       }
     }
     &.js-active {
-      .technology {
-        &-card {
-          &__link {
-            opacity: 1;
-            visibility: visible;
-          }
-        }
+      .link-primary {
+        opacity: 1;
+        visibility: visible;
       }
     }
   }
@@ -140,6 +122,8 @@
 @media screen and (min-width: 992px) {
   .technology {
     &__content {
+      max-width: 1270px;
+      margin: 0 auto;
       padding: 0;
     }
     &__table {
@@ -150,13 +134,37 @@
       flex: 0 0 100%;
       max-width: 100%;
       padding: 0;
+      &:first-child {
+        .technology {
+          &-card {
+            &__image {
+              top: 0;
+              right: 0;
+              transform: translateY(0);
+            }
+          }
+        }
+      }
+      &:last-child {
+        .technology {
+          &-card {
+            &__image {
+              top: unset;
+              bottom: 0;
+              right: 0;
+              transform: translateY(0);
+            }
+          }
+        }
+      }
     }
     &-card {
-      position: unset;
+      // position: unset;
       min-height: auto;
       max-height: fit-content;
       border-radius: 0;
       transition: $transition-normal;
+      overflow: visible;
       &__header {
         position: relative;
         padding: 0;
@@ -164,6 +172,14 @@
         border-radius: 0;
         min-height: auto;
         backdrop-filter: none;
+      }
+      &__body {
+        margin-top: 20px;
+        display: none;
+        p {
+          display: block;
+          max-width: 460px;
+        }
       }
       &__title {
         color: $color-white;
@@ -174,7 +190,7 @@
       }
       &__content {
         z-index: 1;
-        padding: 54px;
+        padding: 54px 15px;
         border-top-width: 1px;
         border-bottom-width: 1px;
         border-left-width: 0;
@@ -185,15 +201,48 @@
       &__image {
         z-index: 2;
         position: absolute;
-        top: 0;
+        top: 50%;
         right: 0;
+        transform: translateY(-50%);
         max-width: 45%;
         max-height: 640px;
-        background: $color-background;
+        min-height: 640px;
+        // background: $color-background;
+        overflow: hidden;
         img {
           opacity: 0;
-          visibility: visible;
-          transition: $transition-high;
+          visibility: hidden;
+          transition: $transition-normal;
+        }
+      }
+      .link-primary {
+        opacity: 1;
+        visibility: visible;
+        position: relative;
+        justify-content: flex-start;
+        width: fit-content;
+        margin-top: 20px;
+        background: transparent;
+        &__title {
+          font-weight: 400;
+          margin-right: 18px;
+        }
+        &__circle {
+          display: block;
+          max-width: 42px;
+          min-width: 42px;
+          max-height: 42px;
+          min-height: 42px;
+        }
+        &__arrow {
+          left: -17px;
+        }
+        &:hover {
+          .link-primary {
+            &__arrow {
+              width: 48px;
+            }
+          }
         }
       }
       &.js-active {
@@ -203,9 +252,6 @@
             &__title {
               color: $color-green-1;
               text-shadow: 1px 0 0 currentColor;
-            }
-            &__link {
-              display: none;
             }
             &__image {
               z-index: 3;
@@ -226,8 +272,10 @@
   .technology {
     &-card {
       &__image {
-        max-height: 900px;
-        max-width: 650px;
+        max-height: 700px;
+        min-height: 700px;
+        max-width: 520px;
+        min-width: 520px;
       }
     }
   }
@@ -254,6 +302,9 @@
       &__body {
         max-width: 624px;
       }
+    }
+    &__content {
+      padding: 0 15px;
     }
   }
 }

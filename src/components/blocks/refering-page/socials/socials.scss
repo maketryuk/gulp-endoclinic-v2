@@ -1,0 +1,27 @@
+.socials {
+  padding: 40px 0;
+  .section-header {
+    margin-bottom: 30px;
+  }
+  &__list {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 375px;
+  }
+  &__link {
+    display: inline-block;
+    text-decoration: none;
+    color: $color-white;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.5;
+  }
+}
+
+// Media 992px =====>
+@media screen and (min-width: 992px) {
+  .socials {
+    padding: 90px 0;
+  }
+}

@@ -1,0 +1,49 @@
+.refering.about {
+  .about {
+    &-text {
+      h2 {
+        margin-bottom: 30px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid $color-white;
+      }
+    }
+    &-years {
+      &__item {
+        .site-description {
+          margin-bottom: 24px;
+        }
+        &:last-child {
+          .site-description {
+            margin-bottom: 32px;
+          }
+        }
+      }
+      &__title {
+        margin-bottom: 12px;
+        padding-bottom: 8px;
+        border-bottom: 1px solid $color-white;
+      }
+    }
+  }
+  .site-description {
+    strong {
+      color: $color-gold-1;
+      font-weight: 400;
+    }
+  }
+}
+
+// Media 768px =====>
+@media screen and (min-width: 768px) {
+  .refering.about {
+    .about {
+      &-text {
+        padding-top: 50px;
+        h2 {
+          margin-bottom: 50px;
+          padding-bottom: 40px;
+        }
+      }
+    }
+  }
+}

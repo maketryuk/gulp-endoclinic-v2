@@ -1,0 +1,27 @@
+.refering.hero {
+  background-image: url(../img/hero-background-2.png);
+  background-repeat: no-repeat;
+  background-position: -220px top;
+  background-size: cover;
+  padding: 150px 0;
+}
+
+// Media 640 =====>
+@media screen and (min-width: 640px) {
+  .refering.hero {
+    background-position: top center;
+  }
+}
+
+// Media 992 =====>
+@media screen and (min-width: 992px) {
+  .refering.hero {
+    padding: 364px 0 304px;
+    h1 {
+      max-width: 764px;
+    }
+    .site-description {
+      max-width: 764px;
+    }
+  }
+}

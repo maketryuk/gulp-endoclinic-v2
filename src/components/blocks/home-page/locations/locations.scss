@@ -1,0 +1,14 @@
+.locations {
+  padding: 40px 0;
+  .map {
+    border-radius: 10px;
+    overflow: hidden;
+  }
+}
+
+// Media 992px =====>
+@media screen and (min-width: 992px) {
+  .locations {
+    padding: 90px 0;
+  }
+} 
