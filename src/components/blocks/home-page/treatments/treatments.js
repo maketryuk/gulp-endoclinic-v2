@@ -15,11 +15,15 @@ const getMaxWidth = () => {
 getMaxWidth();
 ScrollTrigger.addEventListener("refreshInit", getMaxWidth);
 
+let triggerItem = document.querySelector('.treatments');
+
+
 gsap.to(sections, {
   x: () => `-${maxWidth - window.innerWidth}`,
   ease: "none",
   scrollTrigger: {
-    trigger: ".treatments",
+    start: "-70px top",
+    trigger: triggerItem,
     pin: true,
     scrub: true,
     end: () => `+=${maxWidth}`,
