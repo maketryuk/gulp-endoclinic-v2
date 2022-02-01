@@ -60,6 +60,10 @@
 @media screen and (min-width: 992px) {
   .treatments {
     padding: 90px 0;
+    // height: 100vh;
+    display: flex;
+    overflow: hidden;
+    flex-direction: column;
     // &-slider {
     //   max-width: 1440px;
     // }
@@ -72,7 +76,7 @@
         margin-left: 220px;
       }
       &:last-child {
-        margin-right: 220px;
+        margin-right: 120px;
       }
       &:not(:last-child) {
         margin-right: 120px;

@@ -1,0 +1,19 @@
+.tooth {
+  &-table {
+    margin-top: 16px;
+    margin-bottom: 40px;
+  }
+  &__item {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+  }
+  &__checkbox {
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+    &:checked + svg path:first-child {
+      fill: black;
+    }
+  }
+}
