@@ -2,7 +2,7 @@
 if (window.matchMedia("(min-width: 992px)").matches) {
   window.homepagecheck = () => {
     var check = false;
-    if(document.location.pathname === "/"){
+    if(document.location.pathname === "/" || document.location.pathname === "/index.html"){
       check=true;
       }
     return check;
