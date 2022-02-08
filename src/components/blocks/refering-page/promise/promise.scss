@@ -47,7 +47,7 @@
       align-items: stretch;
       justify-content: space-between;
       margin: -15px;
-      padding-top: 32px;
+      padding-top: 30px;
     }
     &__wrapper {
       flex: 0 0 50%;
@@ -66,6 +66,6 @@
 // Media 992px =====>
 @media screen and (min-width: 992px) {
   .promise {
-    padding: 90px 0;
+    padding: 70px 0;
   }
 }

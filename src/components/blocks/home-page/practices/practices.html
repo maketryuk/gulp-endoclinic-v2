@@ -4,7 +4,7 @@
       <h2>Practices</h2>
     </div>
     <div class="swiper practices-slider">
-      <div class="swiper-wrapper">
+      <!-- <div class="swiper-wrapper">
         <div class="swiper-slide">
           <div class="practices-card">
             <div class="practices-card__image">
@@ -44,6 +44,13 @@
             </div>
           </div>
         </div>
+      </div> -->
+      <div class="swiper-wrapper">
+        @@loop('../../../UI/card/practices-card.html', [
+          { "title": "Clinic Dental Facial", "image": "img/practices/practices-1.png", "companyLogo": "img/practices/practices-logo.svg" },
+          { "title": "Chelsea Green Dental", "image": "img/practices/practices-2.png", "companyLogo": "img/practices/practices-logo.svg" },
+          { "title": "The Clinic Dental Facial", "image": "img/practices/practices-3.png", "companyLogo": "img/practices/practices-logo.svg" },
+        ])
       </div>
       <div class="swiper-navigation">
         <div class="swiper-button-prev practices-button-prev">

@@ -38,10 +38,15 @@
   .logo {
     z-index: 100;
     display: block;
-    max-width: 144px;
-    min-width: 144px;
-    max-height: 54px;
-    min-height: 54px;
+    max-width: 130px;
+    min-width: 130px;
+    max-height: 60px;
+    min-height: 60px;
+    background-color: #152F38;
+    padding: 10px 12px;
+    border: 1px solid $color-white;
+    border-radius: 6px;
+    transition: $transition-normal;
     img,
     source {
       width: 100%;
@@ -251,6 +256,13 @@
     &:not(:last-child) {
       margin-bottom: 20px;
     }
+    &.plug {
+      .nav {
+        &__link {
+          display: none;
+        }
+      }
+    }
   }
   &__link {
     text-decoration: none;
@@ -267,7 +279,7 @@
       position: absolute;
       top: 8px;
       left: 8px;
-      color: $color-symbol-and-number;
+      color: $color-symbol;
       font-size: 36px;
       font-weight: 700;
       line-height: 1;
@@ -278,7 +290,7 @@
       position: absolute;
       top: 8px;
       right: 8px;
-      color: $color-symbol-and-number;
+      color: $color-number;
       font-size: 12px;
       font-weight: 400;
       line-height: 1;
@@ -308,11 +320,11 @@
       min-height: 100px;
     }
     .logo {
-      margin-top: 18px;
-      max-width: 179px;
-      min-width: 179px;
-      max-height: 65px;
-      min-height: 65px;
+      padding: 18px 20px;
+      max-width: 220px;
+      min-width: 220px;
+      max-height: 100px;
+      min-height: 100px;
     }
     &-contacts {
       opacity: 0;
@@ -433,7 +445,7 @@
     visibility: visible;
     background: transparent;
     padding: 0;
-    max-width: 436px;
+    max-width: 448px;
     height: fit-content;
     overflow: unset;
     margin-left: auto;

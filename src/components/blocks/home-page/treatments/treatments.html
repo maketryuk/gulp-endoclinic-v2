@@ -11,7 +11,7 @@
     </div>
   </div>
   <div class="swiper treatments-slider">
-    <div class="swiper-wrapper treatments-wrapper to-right">
+    <!-- <div class="swiper-wrapper treatments-wrapper to-right">
       <div class="swiper-slide treatments-slide">
         <a href="#" class="treatments-card">
           <div class="treatments-card__image">
@@ -96,6 +96,16 @@
           </div>
         </a>
       </div>
+    </div> -->
+    <div class="swiper-wrapper treatments-wrapper">
+      @@loop('../../../UI/card/treatments-card.html', [
+        { "title": "CBCT Scan", "image": "img/treatments/treatments-1.png", "price": "£500" },
+        { "title": "Root canal treatment", "image": "img/treatments/treatments-2.png", "price": "£500" },
+        { "title": "Second opinion with report", "image": "img/treatments/treatments-3.png", "price": "£500" },
+        { "title": "Metal Free Crown", "image": "img/treatments/treatments-4.png", "price": "£500" },
+        { "title": "White composite fillings", "image": "img/treatments/treatments-5.png", "price": "£500" },
+        { "title": "Sedation", "image": "img/treatments/treatments-6.png", "price": "£500" },
+      ])
     </div>
     <div class="swiper-navigation">
       <div class="swiper-button-prev treatments-button-prev">

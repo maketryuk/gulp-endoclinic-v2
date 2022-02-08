@@ -1,4 +1,5 @@
 .technology {
+  padding: 40px 0;
   &__content {
     padding: 0 15px;
   }
@@ -37,7 +38,6 @@
       border-radius: 10px;
     }
     &__body {
-      // display: none;
       p {
         display: none;
       }
@@ -121,9 +121,8 @@
 // Media 992px =====>
 @media screen and (min-width: 992px) {
   .technology {
+    padding: 70px 0;
     &__content {
-      max-width: 1270px;
-      margin: 0 auto;
       padding: 0;
     }
     &__table {
@@ -137,15 +136,25 @@
       &:first-child {
         .technology {
           &-card {
-            &__image {
-              top: 0;
-              right: 0;
-              transform: translateY(0);
+            &__body {
+              display: block;
             }
           }
         }
       }
-      &:last-child {
+      &:nth-child(-n+2) {
+        .technology {
+          &-card {
+            &__image {
+              top: 0;
+              right: 0;
+              transform: translateY(0);
+              border-radius: 0 0 0 10px;
+            }
+          }
+        }
+      }
+      &:nth-last-child(-n+2) {
         .technology {
           &-card {
             &__image {
@@ -153,18 +162,24 @@
               bottom: 0;
               right: 0;
               transform: translateY(0);
+              border-radius: 10px 0 0 0;
             }
           }
         }
       }
     }
     &-card {
-      // position: unset;
       min-height: auto;
       max-height: fit-content;
       border-radius: 0;
       transition: $transition-normal;
       overflow: visible;
+      border-top-width: 1px;
+      border-bottom-width: 1px;
+      border-left-width: 0;
+      border-right-width: 0;
+      border-color: $color-white;
+      border-style: solid;
       &__header {
         position: relative;
         padding: 0;
@@ -176,39 +191,37 @@
       &__body {
         margin-top: 20px;
         display: none;
+        max-width: 480px;
         p {
           display: block;
-          max-width: 460px;
         }
       }
       &__title {
         color: $color-white;
-        font-size: 30px;
+        font-size: 20px;
         line-height: 1.4;
-        max-width: 450px;
+        max-width: 720px;
         transition: $transition-normal;
       }
       &__content {
+        position: relative;
+        max-width: 1270px;
+        margin: 0 auto;
         z-index: 1;
-        padding: 54px 15px;
-        border-top-width: 1px;
-        border-bottom-width: 1px;
-        border-left-width: 0;
-        border-right-width: 0;
-        border-color: $color-white;
-        border-style: solid;
+        padding: 40px 15px;
       }
       &__image {
         z-index: 2;
         position: absolute;
+        top: 0;
         top: 50%;
         right: 0;
         transform: translateY(-50%);
         max-width: 45%;
-        max-height: 640px;
-        min-height: 640px;
-        // background: $color-background;
+        max-height: 590px;
+        min-height: 590px;
         overflow: hidden;
+        border-radius: 10px 0 0 10px;
         img {
           opacity: 0;
           visibility: hidden;
@@ -272,8 +285,6 @@
   .technology {
     &-card {
       &__image {
-        max-height: 700px;
-        min-height: 700px;
         max-width: 520px;
         min-width: 520px;
       }
@@ -286,25 +297,11 @@
   .technology {
     &-card {
       &__title {
-        max-width: 520px;
+        max-width: 720px;
       }
       &__body {
-        max-width: 580px;
+        max-width: 720px;
       }
-    }
-  }
-}
-
-// Media 1440px =====>
-@media screen and (min-width: 1440px) {
-  .technology {
-    &-card {
-      &__body {
-        max-width: 624px;
-      }
-    }
-    &__content {
-      padding: 0 15px;
     }
   }
 }

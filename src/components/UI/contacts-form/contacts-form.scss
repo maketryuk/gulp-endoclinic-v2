@@ -1,0 +1,141 @@
+.contacts-form {
+  padding: 40px 0;
+  .section {
+    &-header {
+      display: flex;
+      align-items: center;
+      .btn-secondary {
+        display: none;
+      }
+    }
+  }
+}
+
+.form {
+  margin-top: 10px;
+  h3 {
+    color: $color-green-1;
+    font-size: 30px;
+    font-weight: 500;
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+  &__field {
+    outline: none;
+    padding: 0;
+    border: none;
+    background: transparent;
+    width: 100%;
+    padding: 16px 0;
+    margin-bottom: 40px;
+    color: $color-white;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.5;
+    border-bottom: 1px solid $color-white;
+    &::placeholder {
+      color: $color-white;
+    }
+    &.message {
+      overflow:hidden;
+      resize: none;
+    }
+  }
+  .btn-primary {
+    max-width: 100%;
+  }
+  .select {
+    position: relative;
+    margin-bottom: 40px;
+    &__hidden {
+      display: none;
+      visibility: hidden;
+      padding-right: 10px;
+    }
+    &__styled {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      padding: 16px 0;
+      color: $color-white;
+      font-size: 20px;
+      font-weight: 400;
+      line-height: 1.5;
+      border-bottom: 1px solid $color-white;
+      i {
+        color: $color-white;
+        font-size: 26px;
+        transition: $transition-normal;
+      }
+      &.active {
+        i {
+          transform: rotate(180deg);
+        }
+      }
+    }
+    &__options {
+      display: none;
+      li {
+        cursor: pointer;
+        color: $color-white;
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 1.5;
+        padding: 17px 24px;
+        border: 1px solid $color-white;
+        transition: $transition-normal;
+        &:hover {
+          background: $color-almost-transparent-background;
+        }
+        &[rel="hide"] {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+// Media 480px =====>
+@media screen and (min-width: 480px) {
+  .form {
+    .btn-primary {
+      max-width: 268px;
+    }
+  }
+}
+
+// Media 992px =====>
+@media screen and (min-width: 992px) {
+  .contacts-form {
+    padding: 70px 0;
+    .section {
+      &-header {
+        .btn-secondary {
+          display: flex;
+        }
+      }
+    }
+  }
+  .form {
+    margin-top: 0;
+    .btn-primary {
+      margin-top: 8px;
+    }
+    .select {
+      &__styled {
+        padding-right: 24px;
+      }
+      &__options {
+        z-index: 1;
+        position: absolute;
+        top: 62px;
+        left: 0;
+        width: 100%;
+        height: auto;
+        background: $color-background;
+      }
+    }
+  }
+}

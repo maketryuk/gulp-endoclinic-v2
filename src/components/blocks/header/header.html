@@ -4,7 +4,7 @@
       <img src="img/logo.svg" alt="Logo of Endoclinic">
     </a>
     <nav class="nav">
-      <ul class="nav__list menu">
+      <!-- <ul class="nav__list menu">
         <li class="nav__item menu-item">
           <a href="#" class="nav__link">
             <span class="symbol">Tr</span>
@@ -41,6 +41,16 @@
             <span class="title">Locations</span>
           </a>
         </li>
+      </ul> -->
+      <ul class="nav__list menu">
+        @@loop('../../UI/nav-link.html', [
+          { "title": "Treatments", "symbol": "Tr", "number": "34", "path": "#", "class": "" },
+          { "title": "About us", "symbol": "Ab", "number": "27", "path": "about.html", "class": "" },
+          { "title": "Technology", "symbol": "Te", "number": "11", "path": "#", "class": "" },
+          { "title": "", "symbol": "", "number": "", "path": "", "class": "plug" },
+          { "title": "Contact", "symbol": "Co", "number": "44", "path": "contacts.html", "class": "" },
+          { "title": "Locations", "symbol": "Lo", "number": "31", "path": "#", "class": "" },
+        ])
       </ul>
     </nav>
     <button class="burger">

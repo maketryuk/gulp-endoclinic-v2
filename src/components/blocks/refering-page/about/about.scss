@@ -1,10 +1,14 @@
 .refering.about {
+  .section-header {
+    margin-bottom: 30px;
+  }
   .about {
     &-text {
       h2 {
         margin-bottom: 30px;
         padding-bottom: 20px;
         border-bottom: 1px solid $color-white;
+        text-transform: uppercase;
       }
     }
     &-years {
@@ -36,6 +40,9 @@
 // Media 768px =====>
 @media screen and (min-width: 768px) {
   .refering.about {
+    .section-header {
+      margin-bottom: 70px;
+    }
     .about {
       &-text {
         padding-top: 50px;

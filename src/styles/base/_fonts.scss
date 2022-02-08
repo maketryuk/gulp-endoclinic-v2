@@ -51,21 +51,30 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-arrow-dropdown:before {
-  content: "\e905";
+.icon-file:before {
+  content: "\e908";
 }
-.icon-arrow-right:before {
+.icon-trash-can:before {
+  content: "\e907";
+}
+.icon-paper-clip:before {
   content: "\e900";
 }
-.icon-email:before {
+.icon-arrow-dropdown:before {
   content: "\e901";
 }
-.icon-phone:before {
+.icon-arrow-right:before {
   content: "\e902";
 }
-.icon-quotes:before {
+.icon-email:before {
   content: "\e903";
 }
-.icon-star:before {
+.icon-phone:before {
   content: "\e904";
+}
+.icon-quotes:before {
+  content: "\e905";
+}
+.icon-star:before {
+  content: "\e906";
 }

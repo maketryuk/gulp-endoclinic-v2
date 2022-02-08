@@ -3,12 +3,6 @@ $color-black: #000000;
 $color-white: #ffffff;
 
 $color-background: #152F38;
-$color-almost-transparent-background: rgba(255, 255, 255, 0.3);
-
-$color-background-nav-link: #5D6267;
-$color-background-nav-link-active: #DCE0E1;
-$color-symbol-and-number: #B0B0AF;
-
 
 $color-gold-1: #BC8B5E;
 
@@ -19,6 +13,15 @@ $color-green-2: #9AEACB;
 
 $color-grey-1: #B0B0AF;
 $color-grey-2: #363636;
+
+$color-almost-transparent-background: rgba(255, 255, 255, 0.3);
+
+$color-background-nav-link: #152F38;
+$color-background-nav-link-active: #DCE0E1;
+$color-symbol: #AEE2CE;
+$color-number: #B0B0AF;
+
+$color-card-title: #152F38;
 
 // Transition's =====>
 $transition-low: all 0.15s ease-in-out;

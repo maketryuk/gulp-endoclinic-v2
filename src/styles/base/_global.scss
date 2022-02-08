@@ -122,7 +122,7 @@ h2 {
 		height: 64px;
 		border: 1px solid $color-white;
 		border-radius: 10px;
-		background-color: #5D6267;
+		background-color: #152F38;
 		backdrop-filter: blur(20px);
 		transition: $transition-normal;
 		span {
@@ -159,7 +159,7 @@ h2 {
 			margin-right: 12px;
 			padding-right: 12px;
 			color: $color-white;
-			font-size: 20px;
+			font-size: 16px;
 			font-weight: 400;
 			line-height: 1;
 			transition: $transition-normal;
@@ -233,9 +233,25 @@ h2 {
 	}
 }
 
+.show {
+	&__item {
+		display: none;
+	}
+	&__trigger {
+		display: flex;
+		margin-top: 10px;
+		span {
+			color: $color-gold-1;
+			font-size: 16px;
+			font-weight: 700;
+			line-height: 1.5;
+		}
+	}
+}
+
 .site-description {
 	color: $color-white;
-	font-size: 20px;
+	font-size: 16px;
 	font-weight: 400;
 	line-height: 1.5;
 }
@@ -348,16 +364,29 @@ h2 {
   }
 }
 
+.os-theme-dark .os-scrollbar,
+.os-theme-light .os-scrollbar {
+	background-color: #0A1D23;
+	border-radius: 4px;
+	padding: 6px 8px;
+	height: 16px;
+}
+
+.os-theme-dark .os-scrollbar .os-scrollbar-track .os-scrollbar-handle {
+	border-radius: 4px;
+	background-color: #152F38;
+}
+
 // Media 992px =====>
 @media screen and (min-width: 992px) {
 	.mobile-hidden {
 		display: block;
 	}
-	h1 {
-		font-size: 50px;
+	.desktop-hidden {
+		display: none;
 	}
 	h2 {
-		font-size: 70px;
+		font-size: 50px;
 	}
 	.section-header {
 		margin-bottom: 50px;

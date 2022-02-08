@@ -1,6 +1,6 @@
 const sliderPractices = new Swiper('.practices-slider', {
   slidesPerView: 1,
-  spaceBetween: 30,
+  spaceBetween: 40,
   navigation: {
     nextEl: ".practices-button-next",
     prevEl: ".practices-button-prev",

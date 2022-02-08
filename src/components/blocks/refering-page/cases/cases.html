@@ -6,36 +6,12 @@
     <p class="site-description">It's not always easy to know when you should refer a patient, especially with something as complex as endodontics. We usually recommend referral of patients who fall under complexity codes 2 and 3 based on the Restorative Index of Treatment Need (RIOTN) (FDS RCS Eng)</p>
     <div class="swiper cases-slider">
       <div class="swiper-wrapper">
-        <div class="swiper-slide cases-slide">
-          <div class="cases-card">
-            <div class="cases-card__image">
-              <img src="img/cases/cases-1.png" alt="cases Preview">
-            </div>
-            <div class="cases-card-text">
-              <h3 class="cases-card__title">Lorem ipsum</h3>
-            </div>
-          </div>
-        </div>
-        <div class="swiper-slide cases-slide">
-          <div class="cases-card">
-            <div class="cases-card__image">
-              <img src="img/cases/cases-2.png" alt="cases Preview">
-            </div>
-            <div class="cases-card-text">
-              <h3 class="cases-card__title">Lorem ipsum</h3>
-            </div>
-          </div>
-        </div>
-        <div class="swiper-slide cases-slide">
-          <div class="cases-card">
-            <div class="cases-card__image">
-              <img src="img/cases/cases-1.png" alt="cases Preview">
-            </div>
-            <div class="cases-card-text">
-              <h3 class="cases-card__title">Lorem ipsum</h3>
-            </div>
-          </div>
-        </div>
+        @@loop('../../../UI/card/cases-card.html', [
+          { "title": "Lorem ipsum", "image": "img/cases/cases-1.png" },
+          { "title": "Lorem ipsum", "image": "img/cases/cases-2.png" },
+          { "title": "Lorem ipsum", "image": "img/cases/cases-1.png" },
+          { "title": "Lorem ipsum", "image": "img/cases/cases-2.png" }
+        ])
       </div>
       <div class="swiper-navigation">
         <div class="swiper-button-prev cases-button-prev">

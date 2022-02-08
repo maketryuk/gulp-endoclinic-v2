@@ -43,7 +43,7 @@
     &__author {
       margin-top: 24px;
       color: $color-green-1;
-      font-size: 20px;
+      font-size: 16px;
       font-weight: 700;
       line-height: 1.5;
     }
@@ -53,7 +53,7 @@
 // Media 992px =====>
 @media screen and (min-width: 992px) {
   .testimonials {
-    padding: 90px 0;
+    padding: 70px 0;
     &-slider {
       padding: 30px 0 0;
     }

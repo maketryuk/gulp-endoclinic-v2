@@ -3,8 +3,8 @@
   background-image: url(../img/hero-background.png);
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: top center;
-  margin-bottom: 16px;
+  background-position: center center;
+  margin-bottom: 40px;
   h1 {
     margin-bottom: 8px;
     max-width: 900px;
@@ -34,7 +34,7 @@
       }
     }
     .site-description {
-      font-size: 24px;
+      font-size: 20px;
     }
   }
 }
@@ -53,10 +53,10 @@
     }
     .btn {
       &-primary {
-        margin: 32px 0 0 0;
+        margin: 40px 0 0 0;
       }
       &-secondary {
-        margin: 124px 0 0 auto;
+        margin: 136px 0 0 auto;
       }
     }
   }
@@ -66,6 +66,6 @@
 @media screen and (min-width: 992px) {
 	.hero {
     padding: 324px 0 64px;
-    margin-bottom: 90px;
+    margin-bottom: 70px;
   }
 }
