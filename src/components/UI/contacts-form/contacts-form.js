@@ -1,15 +1,19 @@
 // Auto size textarea =====>
 var textarea = document.querySelector('textarea');
 
-textarea.addEventListener('keydown', autosizeTextarea);
+if (textarea) {
+  textarea.addEventListener('keydown', autosizeTextarea);
+} else {
+  null
+}
 
 function autosizeTextarea(){
-var el = this;
-setTimeout(function(){
-    el.style.cssText = 'height:auto; padding:0';
-    el.style.cssText = '-moz-box-sizing:content-box';
-    el.style.cssText = 'height:' + el.scrollHeight + 'px';
-},0);
+	var el = this;
+	setTimeout(function(){
+		el.style.cssText = 'height:auto; padding:0';
+		el.style.cssText = '-moz-box-sizing:content-box';
+		el.style.cssText = 'height:' + el.scrollHeight + 'px';
+	},0);
 }
 
 // Custom select =====>
@@ -25,36 +29,36 @@ $('select').each(function(){
   $styledSelect.append('<i class="icon-arrow-dropdown"></i>')
 
   var $list = $('<ul />', {
-      'class': 'select__options'
+    'class': 'select__options'
   }).insertAfter($styledSelect);
 
   for (var i = 0; i < numberOfOptions; i++) {
-      $('<li />', {
-          text: $this.children('option').eq(i).text(),
-          rel: $this.children('option').eq(i).val()
-      }).appendTo($list);
+    $('<li />', {
+      text: $this.children('option').eq(i).text(),
+      rel: $this.children('option').eq(i).val()
+    }).appendTo($list);
   }
 
   var $listItems = $list.children('li');
 
   $styledSelect.click(function(e) {
-      e.stopPropagation();
-      $('div.select__styled.active').not(this).each(function(){
-          $(this).removeClass('active').next('ul.select__options').slideUp(300);
-      });
-      $(this).toggleClass('active').next('ul.select__options').slideToggle(300);
+    e.stopPropagation();
+    $('div.select__styled.active').not(this).each(function(){
+      $(this).removeClass('active').next('ul.select__options').slideUp(300);
+    });
+    $(this).toggleClass('active').next('ul.select__options').slideToggle(300);
   });
 
   $listItems.click(function(e) {
-      e.stopPropagation();
-      $styledSelect.text($(this).text()).removeClass('active');
-      $this.val($(this).attr('rel'));
-      $list.slideUp(300);
+    e.stopPropagation();
+    $styledSelect.text($(this).text()).removeClass('active');
+    $this.val($(this).attr('rel'));
+    $list.slideUp(300);
   });
 
   $(document).click(function() {
-      $styledSelect.removeClass('active');
-      $list.slideUp(300);
+    $styledSelect.removeClass('active');
+    $list.slideUp(300);
   });
 
 });

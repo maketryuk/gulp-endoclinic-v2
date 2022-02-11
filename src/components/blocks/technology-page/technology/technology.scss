@@ -1,0 +1,118 @@
+.technology-page {
+  .technology {
+    padding: 124px 0 40px;
+  }
+}
+
+.technology__wrapper.secondary {
+  .technology {
+    &-card {
+      &.js-active {
+        max-height: unset;
+        .technology {
+          &-card {
+            &__image {
+              min-height: 300px;
+              max-height: 300px;
+              overflow: hidden;
+            }
+            &__content {
+              padding: 20px 15px;
+            }
+            &__header {
+              position: relative;
+              background: transparent;
+              backdrop-filter: none;
+              height: auto;
+              padding: 0;
+              border-radius: 0;
+            }
+            &__title {
+              color: $color-green-1;
+              text-shadow: 1px 0 0 currentColor;
+            }
+            &__body {
+              margin-top: 8px;
+              .site-description {
+                display: block;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Media 480px =====>
+@media screen and (min-width: 480px) {
+  .technology__wrapper.secondary {
+    .technology {
+      &-card {
+        &.js-active {
+          .technology {
+            &-card {
+              &__image {
+                min-height: 400px;
+                max-height: 400px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Media 768px =====>
+@media screen and (min-width: 768px) {
+  .technology__wrapper.secondary {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+
+// Media 992px =====>
+@media screen and (min-width: 992px) {
+  .technology-page {
+    .technology {
+      padding: 300px 0 70px;
+    }
+  }
+  .technology__wrapper.secondary {
+    .technology {
+      &-card {
+        &.js-active {
+          .technology {
+            &-card {
+              &__image {
+                min-height: 564px;
+                max-height: 564px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Media 1200px =====>
+@media screen and (min-width: 1200px) {
+  .technology__wrapper.secondary {
+    .technology {
+      &-card {
+        &.js-active {
+          .technology {
+            &-card {
+              &__image {
+                min-height: 600px;
+                max-height: 600px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

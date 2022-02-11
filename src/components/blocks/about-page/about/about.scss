@@ -75,6 +75,10 @@
   .about-page {
     .about {
       padding: 300px 0 70px;
+      &__photo {
+        position: sticky;
+        top: 130px;
+      }
     }
   }
   .refering.about {
