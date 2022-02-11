@@ -117,7 +117,6 @@
       display: inline-block;
       position: relative;
       padding: 8px 20px;
-      margin-bottom: 40px;
       border: 1px solid $color-white;
       border-radius: 10px;
       &__input {
@@ -146,6 +145,7 @@
       align-items: stretch;
       justify-content: flex-start;
       margin: -15px;
+      padding-top: 40px;
     }
     &__wrapper {
       flex: 0 0 100%;
@@ -187,6 +187,14 @@
   }
 }
 
+.refering {
+  .form  {
+    .btn-primary {
+      margin-top: 48px;
+    }
+  }
+}
+
 // Media 640px =====>
 @media screen and (min-width: 640px) {
   .contacts-form {
@@ -204,7 +212,6 @@
   .contacts-form {
     .tooth {
       margin-top: 40px;
-      height: 240px;
     }
     .radio {
       &-container {

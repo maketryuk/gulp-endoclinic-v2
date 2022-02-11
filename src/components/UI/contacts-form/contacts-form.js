@@ -25,8 +25,8 @@ $('select').each(function(){
   $this.after('<div class="select__styled"></div>');
 
   var $styledSelect = $this.next('div.select__styled');
-  $styledSelect.text($this.children('option').eq(0).text());
-  $styledSelect.append('<i class="icon-arrow-dropdown"></i>')
+  $styledSelect.append('<span></span><i class="icon-arrow-dropdown"></i>')
+  $styledSelect.find('span').text($this.children('option').eq(0).text());
 
   var $list = $('<ul />', {
     'class': 'select__options'
@@ -51,7 +51,7 @@ $('select').each(function(){
 
   $listItems.click(function(e) {
     e.stopPropagation();
-    $styledSelect.text($(this).text()).removeClass('active');
+    $styledSelect.find('span').text($(this).text()).removeClass('active');
     $this.val($(this).attr('rel'));
     $list.slideUp(300);
   });

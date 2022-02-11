@@ -92,7 +92,7 @@ h2 {
 		background-color: $color-green-1;
 		backdrop-filter: blur(4px);
 		transition: $transition-normal;
-		span {
+		&__title {
 			color: #15404F;
 			font-size: 20px;
 			font-weight: 700;

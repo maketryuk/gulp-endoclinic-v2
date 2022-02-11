@@ -164,6 +164,21 @@
           }
         }
       }
+      &.js-active {
+        background: rgba(255, 255, 255, 0.3);
+        .technology {
+          &-card {
+            &__image {
+              opacity: 1;
+              visibility: visible;
+            }
+            &__title {
+              color: $color-green-1;
+              text-shadow: 1px 0 0 currentColor;
+            }
+          }
+        }
+      }
     }
     &-card {
       padding: 40px 0;
@@ -220,6 +235,8 @@
           display: block;
         }
         .link-primary {
+          opacity: 1;
+          visibility: visible;
           margin-top: 16px;
           position: relative;
           width: fit-content;
@@ -233,21 +250,6 @@
           }
           &__title {
             font-weight: 400;
-          }
-        }
-      }
-      &.js-active {
-        background: rgba(255, 255, 255, 0.3);
-        .technology {
-          &-card {
-            &__image {
-              opacity: 1;
-              visibility: visible;
-            }
-            &__title {
-              color: $color-green-1;
-              text-shadow: 1px 0 0 currentColor;
-            }
           }
         }
       }

@@ -110,11 +110,38 @@ window.onload = () => {
 
       tabDropdownTrigger.textContent = document.querySelector(".tabs__trigger.js-active").textContent
     });
+  } 
+  
+  // Custom scrollbar in tooth table
+  OverlayScrollbars(document.querySelectorAll(".tooth"), {});
+
+  // Files input
+  let filesTrigger = document.getElementById('file');
+  let filesTable = document.querySelector('.files__table');
+  
+  let updateFilesList = () => {
+    let children = "";
+    for (let i = 0; i < filesTrigger.files.length; ++i) {
+      children +=  '<div class="files__wrapper">' + '<div class="files-item">' + '<i class="icon-file"></i>' + '<span class="files-item__name">' + filesTrigger.files.item(i).name + '</span/>' + '<i class="files-item__remove icon-trash-can" onclick="return this.parentNode.parentNode.remove();"></i>' + '</div>' + '</div>'
+    }
+    filesTable.innerHTML = children;
+    if (children.length >= 0) {
+      filesTable.style.display = 'flex'
+    } else {
+      filesTable.style.display = 'none'
+    }
+  }
+
+  if (filesTrigger) {
+    filesTrigger.addEventListener("change", () => {
+      updateFilesList()
+    })
+  }
+
+  if (tabDropdownTrigger) {
+    tabDropdownTrigger.textContent = document.querySelector(".tabs__trigger.js-active").textContent
   }
   
-  // Ломает всё!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-  // tabDropdownTrigger.textContent = document.querySelector(".tabs__trigger.js-active").textContent
-
   // Media 992 =====>
   if (window.matchMedia("(min-width: 992px)").matches) {
     // Opening desktop menu with burger
@@ -129,9 +156,9 @@ window.onload = () => {
     });
 
     // Opening technology accordion
-    $('.technology-card').click(function () {
-      $(".technology-card").not($(this).closest(".technology-card")).removeClass("js-active");
-      $(this).closest(".technology-card").addClass("js-active");
+    $('.technology__wrapper').click(function () {
+      $(".technology__wrapper").not($(this).closest(".technology__wrapper")).removeClass("js-active");
+      $(this).closest(".technology__wrapper").addClass("js-active");
       if ($(this).hasClass('js-active')) {
         $('.technology-card__body').not($(this).find('.technology-card__body')).slideUp(300);
         $(this).find('.technology-card__body').slideDown(300);
