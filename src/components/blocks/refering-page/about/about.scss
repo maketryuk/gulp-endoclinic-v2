@@ -10,26 +10,29 @@
         border-bottom: 1px solid $color-white;
         text-transform: uppercase;
       }
-    }
-    &-years {
-      &__item {
-        .site-description {
-          margin-bottom: 24px;
-        }
-        &:last-child {
-          .site-description {
-            margin-bottom: 32px;
+      p {
+        margin-bottom: 24px;
+      }
+      ul {
+        li {
+          &:last-child {
+            p {
+              margin-bottom: 32px;
+            }
+          }
+          p {
+            margin-bottom: 24px;
+          }
+          h4 {
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid $color-white;
           }
         }
       }
-      &__title {
-        margin-bottom: 12px;
-        padding-bottom: 8px;
-        border-bottom: 1px solid $color-white;
-      }
     }
   }
-  .site-description {
+  p {
     strong {
       color: $color-gold-1;
       font-weight: 400;

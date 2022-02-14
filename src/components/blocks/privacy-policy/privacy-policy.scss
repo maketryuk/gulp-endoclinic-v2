@@ -1,0 +1,47 @@
+.privacy {
+  padding: 124px 0 40px;
+  h3 {
+    color: $color-green-1;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.5;
+  }
+  p {
+    margin: 20px 0;
+    span {
+      display: block;
+      font-weight: 700;
+    }
+  }
+  li {
+    position: relative;
+    padding-left: 24px;
+    &::before {
+      content: '';
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      width: 6px;
+      height: 6px;
+      background-color: $color-white;
+      border-radius: 100px;
+    }
+  }
+  a {
+    color: $color-white;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    transition: $transition-normal;
+    &:hover {
+      color: $color-gold-1;
+    }
+  }
+}
+
+// Media 992px =====>
+@media screen and (min-width: 992px) {
+  .privacy {
+    padding: 300px 0 70px;
+  }
+}

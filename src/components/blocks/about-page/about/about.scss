@@ -1,65 +1,29 @@
-.refering.about {
-  .section-header {
-    margin-bottom: 30px;
-  }
-  .about {
-    &-text {
-      h2 {
-        margin-bottom: 30px;
-        padding-bottom: 20px;
-        border-bottom: 1px solid $color-white;
-        text-transform: uppercase;
-      }
+.about {
+  &-quote {
+    padding-top: 30px;
+    border-top: 1px solid $color-white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    .icon-quotes {
+      color: $color-white;
+      font-size: 53px;
     }
-    &-years {
-      &__item {
-        .site-description {
-          margin-bottom: 24px;
-        }
-        &:last-child {
-          .site-description {
-            margin-bottom: 32px;
-          }
-        }
-      }
-      &__title {
-        margin-bottom: 12px;
-        padding-bottom: 8px;
-        border-bottom: 1px solid $color-white;
-      }
+    p {
+      margin: 28px 0 16px;
+      font-size: 20px;
     }
-    &-quote {
-      padding-top: 30px;
-      border-top: 1px solid $color-white;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      .icon-quotes {
+    h3 {
+      color: $color-green-1;
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1.6;
+      span {
+        display: block;
         color: $color-white;
-        font-size: 53px;
+        font-weight: 400;
       }
-      .site-description {
-        margin: 28px 0 16px;
-        font-size: 20px;
-      }
-      &__author {
-        color: $color-green-1;
-        font-size: 16px;
-        font-weight: 700;
-        line-height: 1.6;
-        span {
-          display: block;
-          color: $color-white;
-          font-weight: 400;
-        }
-      }
-    }
-  }
-  .site-description {
-    strong {
-      color: $color-gold-1;
-      font-weight: 400;
     }
   }
 }

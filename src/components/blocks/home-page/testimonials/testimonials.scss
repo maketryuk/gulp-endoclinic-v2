@@ -20,7 +20,7 @@
       color: $color-white;
       font-size: 53px;
     }
-    .site-description {
+    p {
       text-align: center;
       margin: 24px 0 12px;
     }
@@ -40,7 +40,7 @@
         }
       }
     }
-    &__author {
+    h5 {
       margin-top: 24px;
       color: $color-green-1;
       font-size: 16px;

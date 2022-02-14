@@ -48,7 +48,7 @@
       border-radius: 10px;
       overflow: hidden;
     }
-    &__title {
+    h3 {
       color: #152F38;
       font-size: 16px;
       font-weight: 400;
@@ -56,7 +56,7 @@
       transition: $transition-normal;
     }
     &__body {
-      .site-description {
+      p {
         display: none;
         &:not(:last-child) {
           margin-bottom: 24px;
@@ -172,7 +172,7 @@
               opacity: 1;
               visibility: visible;
             }
-            &__title {
+            h3 {
               color: $color-green-1;
               text-shadow: 1px 0 0 currentColor;
             }
@@ -221,7 +221,7 @@
         padding: 0;
         height: auto;
       }
-      &__title {
+      h3 {
         color: $color-white;
         font-size: 20px;
         font-weight: 400;
@@ -231,7 +231,7 @@
         display: none;
         max-width: 520px;
         margin-top: 16px;
-        .site-description {
+        p {
           display: block;
         }
         .link-primary {

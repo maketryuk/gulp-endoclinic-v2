@@ -51,6 +51,9 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-user-arrow:before {
+  content: "\e909";
+}
 .icon-file:before {
   content: "\e908";
 }

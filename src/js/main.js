@@ -78,6 +78,24 @@ window.onload = () => {
   let treatmentsDropdown = document.querySelector(".treatments .dropdown");
   let treatmentsDropdownList = document.querySelector(".treatments .dropdown__list")
 
+  // Scroll to contacts-form
+  const links = document.querySelectorAll(".header-contacts__link");
+
+  for (const link of links) {
+    link.addEventListener("click", clickHandler);
+  }
+
+  function clickHandler(e) {
+    e.preventDefault();
+    const href = this.getAttribute("href");
+    const offsetTop = document.querySelector(href).offsetTop;
+
+    scroll({
+      top: offsetTop - 100,
+      behavior: "smooth"
+    });
+  }
+
   // Manipulations with header classes on scroll
   let scrollChange = 1;
 
@@ -93,7 +111,7 @@ window.onload = () => {
     }
   });
 
-  // Treatments page tabs
+  // Tabs
   for (let i = 0; i < tabItem.length; i++) {
     tabItem[i].addEventListener("click", () => {
 
@@ -112,6 +130,9 @@ window.onload = () => {
     });
   } 
   
+  if (tabDropdownTrigger) {
+    tabDropdownTrigger.textContent = document.querySelector(".tabs__trigger.js-active").textContent
+  }
   // Custom scrollbar in tooth table
   OverlayScrollbars(document.querySelectorAll(".tooth"), {});
 
@@ -136,10 +157,6 @@ window.onload = () => {
     filesTrigger.addEventListener("change", () => {
       updateFilesList()
     })
-  }
-
-  if (tabDropdownTrigger) {
-    tabDropdownTrigger.textContent = document.querySelector(".tabs__trigger.js-active").textContent
   }
   
   // Media 992 =====>
@@ -231,26 +248,50 @@ window.onload = () => {
     }
 
   } else {
-    // Treatments page tabs navigation
-    window.addEventListener("scroll", () => {
-      let offsetItem1 = document.querySelector('.header').offsetHeight
-  
-      if (window.scrollY > offsetItem1 + 64 ) {
-        treatmentsDropdown.classList.add("js-scroll-down");
-        treatmentsDropdownList.style.display = 'none'
-      } else {
-        treatmentsDropdown.classList.remove("js-scroll-down");
-        treatmentsDropdownList.style.display = 'block'
-      }
-    });
+    // Toggle visible elements
+    let showTrigger = document.querySelectorAll(".show__trigger");
+    let showItem = document.querySelectorAll(".show__item");
 
-    treatmentsDropdown.addEventListener('click', () => {
-      if (treatmentsDropdown.classList.contains("js-scroll-down")) {
-        slideToggle(treatmentsDropdownList, 300);
-      } else {
-        null
-      }
-    });
+    for (let i = 0; i < showTrigger.length; i++) {
+      showTrigger[i].addEventListener("click", () => {
+        showTrigger[i].classList.toggle('js-active')
+
+        if (showTrigger[i].classList.contains("js-active")) {
+          showTrigger[i].textContent = 'See less'
+          showItem.forEach((element) => {
+            element.style.display = "block"
+          });
+        } else {
+          showTrigger[i].textContent = 'See all'
+          showItem.forEach((element) => {
+            element.style.display = "none"
+          });
+        }
+      })
+    }
+    
+    // Treatments page tabs navigation
+    if (treatmentsDropdown && treatmentsDropdownList) {
+      window.addEventListener("scroll", () => {
+        let offsetItem1 = document.querySelector('.header').offsetHeight
+    
+        if (window.scrollY > offsetItem1 + 64 ) {
+          treatmentsDropdown.classList.add("js-scroll-down");
+          treatmentsDropdownList.style.display = 'none'
+        } else {
+          treatmentsDropdown.classList.remove("js-scroll-down");
+          treatmentsDropdownList.style.display = 'block'
+        }
+      });
+
+      treatmentsDropdown.addEventListener('click', () => {
+        if (treatmentsDropdown.classList.contains("js-scroll-down")) {
+          slideToggle(treatmentsDropdownList, 300);
+        } else {
+          null
+        }
+      });
+    }
 
     // Opening mobile menu with burger
     burger.addEventListener("click", () => {

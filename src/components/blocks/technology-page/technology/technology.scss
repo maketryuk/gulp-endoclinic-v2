@@ -25,13 +25,13 @@
           padding: 0;
           border-radius: 0;
         }
-        &__title {
+        h3 {
           color: $color-green-1;
           text-shadow: 1px 0 0 currentColor;
         }
         &__body {
           margin-top: 8px;
-          .site-description {
+          p {
             display: block;
           }
         }

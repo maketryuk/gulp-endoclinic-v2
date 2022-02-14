@@ -1,0 +1,33 @@
+.error {
+  padding: 124px 0 40px;
+  height: calc(100vh - 254px);
+  .container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  h1 {
+    font-size: 160px;
+    font-weight: 400;
+  }
+  p {
+    font-size: 20px;
+    text-align: center;
+  }
+  .btn-primary {
+    margin-top: 40px;
+    min-height: 64px;
+  }
+}
+
+// Media 992px =====>
+@media screen and (min-width: 992px) {
+  .error {
+    padding: 300px 0 70px;
+    h1 {
+      font-size: 200px;
+    }
+  }
+}

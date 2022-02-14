@@ -43,8 +43,6 @@ button {
 }
 
 .site-container {
-	// max-width: 1920px;
-	// width: 100%;
 	margin: 0 auto;
 }
 
@@ -79,6 +77,13 @@ h2 {
 	line-height: 1.2;
 }
 
+p {
+	color: $color-white;
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 1.5;
+}
+
 .btn {
 	&-primary {
 		text-decoration: none;
@@ -91,25 +96,18 @@ h2 {
 		border-radius: 10px;
 		background-color: $color-green-1;
 		backdrop-filter: blur(4px);
+		color: #15404F;
+		font-size: 20px;
+		font-weight: 700;
+		line-height: 1;
 		transition: $transition-normal;
-		&__title {
-			color: #15404F;
-			font-size: 20px;
-			font-weight: 700;
-			line-height: 1;
-			transition: $transition-normal;
-		}
 		&:hover {
 			background-color: $color-green-2;
-			span {
-				color: #152F38;
-			}
+			color: #152F38;
 		}
 		&:active {
 			background-color: #91BEAD;
-			span {
-				color: #152F38;
-			}
+			color: #152F38;
 		}
 	}
 	&-secondary {
@@ -124,25 +122,18 @@ h2 {
 		border-radius: 10px;
 		background-color: #152F38;
 		backdrop-filter: blur(20px);
+		color: $color-white;
+		font-size: 20px;
+		font-weight: 700;
+		line-height: 1;
 		transition: $transition-normal;
-		span {
-			color: $color-white;
-			font-size: 20px;
-			font-weight: 700;
-			line-height: 1;
-			transition: $transition-normal;
-		}
 		&:hover {
 			background-color: $color-white;
-			span {
-				color: $color-gold-1;
-			}
+			color: $color-gold-1;
 		}
 		&:active {
 			background-color: #DCE0E1;
-			span {
-				color: $color-gold-1;
-			}
+			color: $color-gold-1;
 		}
 	}
 }
@@ -240,20 +231,11 @@ h2 {
 	&__trigger {
 		display: flex;
 		margin-top: 10px;
-		span {
-			color: $color-gold-1;
-			font-size: 16px;
-			font-weight: 700;
-			line-height: 1.5;
-		}
+		color: $color-gold-1;
+		font-size: 16px;
+		font-weight: 700;
+		line-height: 1.5;
 	}
-}
-
-.site-description {
-	color: $color-white;
-	font-size: 16px;
-	font-weight: 400;
-	line-height: 1.5;
 }
 
 .section-header {
@@ -261,9 +243,18 @@ h2 {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+	h1 {
+		color: $color-green-1;
+		font-size: 40px;
+		font-weight: 500;
+		line-height: 1.2;
+	}
 }
 
 .swiper {
+	&-slide {
+		cursor: grab;
+	}
   &-navigation {
     position: relative;
     width: fit-content;
@@ -390,6 +381,9 @@ h2 {
 	}
 	.section-header {
 		margin-bottom: 50px;
+		h1 {
+			font-size: 50px;
+		}
 	}
 	.link {
 		&-primary {
