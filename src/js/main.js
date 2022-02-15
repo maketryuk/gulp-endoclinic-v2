@@ -188,6 +188,10 @@ window.onload = () => {
     //       element.classList.remove("js-active");
     //     });
 
+    //     // technologyCardBody.forEach((element) => {
+    //     //   slideUp(element)
+    //     // });
+
     //     technologyCard[i].classList.add('js-active');
 
     //     // Add class to the element that was clicked
@@ -195,14 +199,7 @@ window.onload = () => {
     //   });
     // }
     
-    // Checking if the active page is the home page
-    // window.homepagecheck = () => {
-    //   var check = false;
-    //   if(document.location.pathname === "/" || document.location.pathname === "/index.html"){
-    //     check=true;
-    //     }
-    //   return check;
-    // }
+
     let horizontalScroll = document.querySelector('.horizontal-scroll')
 
     if (horizontalScroll) {
@@ -270,11 +267,11 @@ window.onload = () => {
       })
     }
 
-    let offsetItem = document.querySelector('.dropdown__list').offsetHeight
-    document.documentElement.style.setProperty("--treatments-dropdown-offset", offsetItem + "px")
     
     // Treatments page tabs navigation
     if (treatmentsDropdown && treatmentsDropdownList) {
+      let offsetItem = document.querySelector('.dropdown__list').offsetHeight
+      document.documentElement.style.setProperty("--treatments-dropdown-offset", offsetItem + "px")
       window.addEventListener("scroll", () => {
         
         if (window.scrollY > offsetItem + 64 ) {
