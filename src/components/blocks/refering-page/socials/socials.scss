@@ -16,6 +16,10 @@
     font-size: 20px;
     font-weight: 400;
     line-height: 1.5;
+    transition: $transition-normal;
+    &:hover {
+      color: $color-gold-1;
+    }
   }
   &__slider {
     margin-top: 30px;

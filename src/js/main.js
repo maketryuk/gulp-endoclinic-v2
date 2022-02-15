@@ -1,7 +1,7 @@
 // Scroll to the top before the page loads
-// window.onbeforeunload = function () {
-//   window.scrollTo(0, 0);
-// }
+window.onbeforeunload = function () {
+  window.scrollTo(0, 0);
+}
 
 let slideUp = (target, duration=500) => {
 
@@ -196,19 +196,20 @@ window.onload = () => {
     // }
     
     // Checking if the active page is the home page
-    window.homepagecheck = () => {
-      var check = false;
-      if(document.location.pathname === "/" || document.location.pathname === "/index.html"){
-        check=true;
-        }
-      return check;
-    }
-  
-    if(window.homepagecheck()){
+    // window.homepagecheck = () => {
+    //   var check = false;
+    //   if(document.location.pathname === "/" || document.location.pathname === "/index.html"){
+    //     check=true;
+    //     }
+    //   return check;
+    // }
+    let horizontalScroll = document.querySelector('.horizontal-scroll')
+
+    if (horizontalScroll) {
       // Horizontal scroll in Treatments =====>
       gsap.registerPlugin(ScrollTrigger);
   
-      const sections = gsap.utils.toArray(".treatments-horizontal");
+      const sections = gsap.utils.toArray(".horizontal-scroll");
       let maxWidth = 0;
   
       const getMaxWidth = () => {
@@ -243,9 +244,8 @@ window.onload = () => {
           toggleClass: {targets: sct, className: "active"}
         });
       });
-    } else {
-      null
     }
+
 
   } else {
     // Toggle visible elements

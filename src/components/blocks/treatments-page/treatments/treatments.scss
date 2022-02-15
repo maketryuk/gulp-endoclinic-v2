@@ -41,6 +41,9 @@
       padding: 30px 15px 0;
     }
     &-content {
+      li {
+        padding: 0;
+      }
       h3 {
         margin-bottom: 8px;
         color: $color-green-1;
@@ -219,25 +222,23 @@
         max-width: 68%;
         padding: 0 15px 0 45px;
       }
-    }
-  }
-  .treatments {
-    &-content {
-      &__header {
-        display: flex;
-        align-items: flex-start;
-        justify-content: space-between;
-      }
-      &__body {
-        margin-top: 30px;
-      }
-      .btn-primary {
-        margin: 0 0 0 32px;
-      }
-      &__image {
-        margin-top: 60px;
-        max-height: 480px;
-        min-height: 480px;
+      &-content {
+        .btn-primary {
+          margin: 0 0 0 32px;
+        }
+        &__header {
+          display: flex;
+          align-items: flex-start;
+          justify-content: space-between;
+        }
+        &__body {
+          margin-top: 30px;
+        }
+        &__image {
+          margin-top: 60px;
+          max-height: 480px;
+          min-height: 480px;
+        }
       }
     }
   }
