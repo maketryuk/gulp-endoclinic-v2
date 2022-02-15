@@ -269,18 +269,22 @@ window.onload = () => {
         }
       })
     }
+
+    let offsetItem = document.querySelector('.dropdown__list').offsetHeight
+    document.documentElement.style.setProperty("--treatments-dropdown-offset", offsetItem + "px")
     
     // Treatments page tabs navigation
     if (treatmentsDropdown && treatmentsDropdownList) {
       window.addEventListener("scroll", () => {
-        let offsetItem1 = document.querySelector('.header').offsetHeight
-    
-        if (window.scrollY > offsetItem1 + 64 ) {
+        
+        if (window.scrollY > offsetItem + 64 ) {
           treatmentsDropdown.classList.add("js-scroll-down");
           treatmentsDropdownList.style.display = 'none'
+          document.querySelector('.treatments').classList.add("offset-top")
         } else {
           treatmentsDropdown.classList.remove("js-scroll-down");
           treatmentsDropdownList.style.display = 'block'
+          document.querySelector('.treatments').classList.remove("offset-top")
         }
       });
 
@@ -292,6 +296,7 @@ window.onload = () => {
         }
       });
     }
+
 
     // Opening mobile menu with burger
     burger.addEventListener("click", () => {

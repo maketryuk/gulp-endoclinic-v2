@@ -1,6 +1,13 @@
+:root {
+  --treatments-dropdown-offset: 0;
+}
+
 .treatments-page {
   .treatments {
-    padding: 124px 0 40px;
+    padding: 0;
+    &.offset-top {
+      padding-top: var(--treatments-dropdown-offset);
+    }
     .container {
       padding: 0;
       .section-header {
@@ -172,6 +179,9 @@
         }
       }
     }
+  }
+  main {
+    padding: 124px 0 40px;
   }
 }
 
