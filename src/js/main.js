@@ -1,7 +1,7 @@
 // Scroll to the top before the page loads
-window.onbeforeunload = function () {
-  window.scrollTo(0, 0);
-}
+// window.onbeforeunload = function () {
+//   window.scrollTo(0, 0);
+// }
 
 let slideUp = (target, duration=500) => {
 
@@ -137,27 +137,60 @@ window.onload = () => {
   OverlayScrollbars(document.querySelectorAll(".tooth"), {});
 
   // Files input
-  let filesTrigger = document.getElementById('file');
+  // let filesTrigger = document.getElementById('file');
   let filesTable = document.querySelector('.files__table');
   
-  let updateFilesList = () => {
-    let children = "";
-    for (let i = 0; i < filesTrigger.files.length; ++i) {
-      children +=  '<div class="files__wrapper">' + '<div class="files-item">' + '<i class="icon-file"></i>' + '<span class="files-item__name">' + filesTrigger.files.item(i).name + '</span/>' + '<i class="files-item__remove icon-trash-can" onclick="return this.parentNode.parentNode.remove();"></i>' + '</div>' + '</div>'
+  // let updateFilesList = () => {
+  //   let children = "";
+  //   for (let i = 0; i < filesTrigger.files.length; ++i) {
+  //     children +=  '<div class="files__wrapper">' + '<div class="files-item">' + '<i class="icon-file"></i>' + '<span class="files-item__name">' + filesTrigger.files.item(i).name + '</span/>' + '<i class="files-item__remove icon-trash-can" onclick="return this.parentNode.parentNode.remove();"></i>' + '</div>' + '</div>'
+  //   }
+  //   filesTable.innerHTML = children;
+  //   if (children.length >= 0) {
+  //     filesTable.style.display = 'flex'
+  //   } else {
+  //     filesTable.style.display = 'none'
+  //   }
+  // }
+
+  // if (filesTrigger) {
+  //   filesTrigger.addEventListener("change", () => {
+  //     updateFilesList()
+  //   })
+  // }
+
+  const dt = new DataTransfer();
+
+  $("#file").on('change', function(e){
+    for(var i = 0; i < this.files.length; i++){
+      let fileBloc = $('<div/>', {class: 'files__wrapper'}),
+        fileName = $('<files-item/>', {class: 'name', text: this.files.item(i).name});
+      fileBloc.append(`<div class="files-item"><i class="icon-file"></i><span class="files-item__name">${this.files.item(i).name}</span><i class="files-item__remove icon-trash-can"></i><div><div>`)
+      $(".files__table").append(fileBloc);
+    };
+    for (let file of this.files) {
+      dt.items.add(file);
     }
-    filesTable.innerHTML = children;
-    if (children.length >= 0) {
+    this.files = dt.files;
+
+    if (this.files.length >= 0) {
       filesTable.style.display = 'flex'
     } else {
       filesTable.style.display = 'none'
     }
-  }
-
-  if (filesTrigger) {
-    filesTrigger.addEventListener("change", () => {
-      updateFilesList()
-    })
-  }
+  
+    $('.files-item__remove').click(function(){
+      let name = $(this).parent().find('.files-item__name').text();
+      $(this).parents('.files__wrapper').remove();
+      for(let i = 0; i < dt.items.length; i++){
+        if(name === dt.items[i].getAsFile().name){
+          dt.items.remove(i);
+          continue;
+        }
+      }
+      document.getElementById('file').files = dt.files;
+    });
+  });
   
   // Media 992 =====>
   if (window.matchMedia("(min-width: 992px)").matches) {
@@ -407,6 +440,9 @@ window.onload = () => {
     breakpoints: {
       768: {
         slidesPerView: 2,
+      },
+      992: {
+        slidesPerView: 5,
       },
     }
   })

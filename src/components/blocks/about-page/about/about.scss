@@ -1,5 +1,6 @@
 .about {
   &-quote {
+    margin-top: 40px;
     padding-top: 30px;
     border-top: 1px solid $color-white;
     display: flex;
@@ -41,7 +42,7 @@
       padding: 300px 0 70px;
       &__photo {
         position: sticky;
-        top: 130px;
+        top: 136px;
       }
     }
   }

@@ -8,33 +8,13 @@
     overflow: hidden;
     margin-bottom: 40px;
     img,
-    source {
+    source,
+    picture {
+      display: block;
       width: 100%;
       height: 100%;
       border-radius: 10px;
       overflow: hidden;
-    }
-    .first,
-    .second {
-      transition: $transition-normal;
-    }
-    .second {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      opacity: 0;
-      visibility: hidden;
-    }
-    &:hover {
-      .first {
-        opacity: 0;
-        visibility: hidden;
-      }
-      .second {
-        opacity: 1;
-        visibility: visible; 
-      }
     }
   }
   &-progress {

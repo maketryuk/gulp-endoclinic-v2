@@ -47,6 +47,10 @@
       margin-bottom: 70px;
     }
     .about {
+      &__photo {
+        position: sticky;
+        top: 136px;
+      }
       &-text {
         padding-top: 50px;
         h2 {
