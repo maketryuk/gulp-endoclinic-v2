@@ -1,7 +1,7 @@
 // Scroll to the top before the page loads
-// window.onbeforeunload = function () {
-//   window.scrollTo(0, 0);
-// }
+window.onbeforeunload = function () {
+  window.scrollTo(0, 0);
+}
 
 let slideUp = (target, duration=500) => {
 
@@ -103,14 +103,14 @@ window.onload = () => {
       },
     },
     submitHandler: function() {
-      // var boxes = $('.tooth__checkbox');
-      // if(boxes.length > 0) {
-      //   if( $('.tooth__checkbox:checked').length < 1) {
-      //     boxes.parents('.tooth__item').addClass('invalid')
-      //     boxes[0].focus();
-      //     return false;
-      //   }
-      // }
+      var boxes = $('.tooth__checkbox');
+      if(boxes.length > 0) {
+        if( $('.tooth__checkbox:checked').length < 1) {
+          boxes.parents('.tooth__item').addClass('invalid')
+          boxes[0].focus();
+          return false;
+        }
+      }
       form.submit();
     }
   });
@@ -156,26 +156,23 @@ window.onload = () => {
     window.addEventListener("scroll", () => {
       scrollspy()
     });
+
+    for (const link of linksScroll) {
+      link.addEventListener("click", clickHandler);
+    }
+  
+    function clickHandler(e) {
+      e.preventDefault();
+      const href = this.getAttribute("href");
+      const offsetTop = document.querySelector(href).offsetTop + 200;
+  
+      scroll({
+        top: offsetTop,
+        behavior: "smooth"
+      });
+    }
   } else {
     null
-  }
-
-  // Scroll to contacts-form
-  const linksScroll = document.querySelectorAll(".scroll__link");
-
-  for (const link of linksScroll) {
-    link.addEventListener("click", clickHandler);
-  }
-
-  function clickHandler(e) {
-    e.preventDefault();
-    const href = this.getAttribute("href");
-    const offsetTop = document.querySelector(href).offsetTop;
-
-    scroll({
-      top: offsetTop - 150,
-      behavior: "smooth"
-    });
   }
 
   // Manipulations with header classes on scroll
@@ -383,6 +380,23 @@ window.onload = () => {
       })
     }
 
+    if (treatmentsSidebar) {
+      for (const link of linksScroll) {
+        link.addEventListener("click", clickHandler);
+      }
+    
+      function clickHandler(e) {
+        e.preventDefault();
+        const href = this.getAttribute("href");
+        const offsetTop = document.querySelector(href).offsetTop - 150;
+    
+        scroll({
+          top: offsetTop,
+          behavior: "smooth"
+        });
+      }
+    }
+
     // Treatments page tabs navigation
     // let treatmentsDropdown = document.querySelector(".treatments .dropdown");
     // let treatmentsDropdownList = document.querySelector(".treatments .dropdown__list");
@@ -574,4 +588,22 @@ window.onload = () => {
       },
     }
   })
+}
+
+// Scroll to anchor
+let linksScroll = document.querySelectorAll(".scroll__link");
+
+for (const link of linksScroll) {
+  link.addEventListener("click", clickHandler);
+}
+
+function clickHandler(e) {
+  e.preventDefault();
+  const href = this.getAttribute("href");
+  const offsetTop = document.querySelector(href).offsetTop - 150;
+
+  scroll({
+    top: offsetTop,
+    behavior: "smooth"
+  });
 }
