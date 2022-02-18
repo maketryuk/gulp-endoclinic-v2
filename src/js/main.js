@@ -58,7 +58,7 @@ let slideDown = (target, duration=500) => {
   }, duration);
 }
 
-var slideToggle = (target, duration = 500) => {
+let slideToggle = (target, duration = 500) => {
   if (window.getComputedStyle(target).display === 'none') {
     return slideDown(target, duration);
   } else {
@@ -67,21 +67,103 @@ var slideToggle = (target, duration = 500) => {
 }
 
 window.onload = () => {
+  // Validate form
+  $(".form").validate({
+    errorClass: 'invalid',
+    errorPlacement: function(error, element) {},
+    rules: {
+      user_name: {
+        required: true,
+      },
+      user_email: {
+        required: true,
+        email: true
+      },
+      user_phone: {
+        required: true,
+      },
+      user_datebirth: {
+        required: true,
+      },
+      dentist_name: {
+        required: true,
+      },
+      dentist_address: {
+        required: true,
+      },
+      dentist_email: {
+        required: true,
+        email: true,
+      },
+      dentist_phone: {
+        required: true,
+      },
+      dentist_gdc: {
+        required: true,
+      },
+    },
+    submitHandler: function() {
+      // var boxes = $('.tooth__checkbox');
+      // if(boxes.length > 0) {
+      //   if( $('.tooth__checkbox:checked').length < 1) {
+      //     boxes.parents('.tooth__item').addClass('invalid')
+      //     boxes[0].focus();
+      //     return false;
+      //   }
+      // }
+      form.submit();
+    }
+  });
+  
   // Variabels
   let burger = document.querySelector(".burger");
   let header = document.querySelector(".header");
   let technologyCard = document.querySelectorAll('.technology-card');
-  let technologyCardBody = document.querySelectorAll('.technology-card__body')
-  let tabContent = document.querySelectorAll(".tabs__item");
-  let tabItem = document.querySelectorAll(".tabs__trigger");
-  let tabDropdownTrigger = document.querySelector(".treatments .dropdown__trigger .dropdown__trigger-text");
-  let treatmentsDropdown = document.querySelector(".treatments .dropdown");
-  let treatmentsDropdownList = document.querySelector(".treatments .dropdown__list")
+  // let technologyCardBody = document.querySelectorAll('.technology-card__body')
+  // let tabContent = document.querySelectorAll(".tabs__item");
+  // let tabItem = document.querySelectorAll(".tabs__trigger");
+  // let tabDropdownTrigger = document.querySelector(".treatments .dropdown__trigger .dropdown__trigger-text");
+  let treatments = document.querySelector('.treatments');
+  let treatmentsSidebar = document.querySelector(".treatments-sidebar");
+  let treatmentsDropdownTrigger = document.querySelector(".treatments .dropdown__trigger");
+  let treatmentsDropdownItem = document.querySelector(".treatments .dropdown__item");
+  let treatmentsSidebarLink = document.querySelectorAll(".treatments-sidebar a");
+
+  // Spyscroll
+  if (treatmentsSidebar) {
+    let scrollspys = document.querySelectorAll(".treatments-content__item");
+    let links = document.querySelector(".treatments-sidebar a");
+    let linksHeight = links.offsetHeight;
+    let allLinks = document.querySelectorAll(".treatments-sidebar a");
+    
+    function scrollspy() {
+      scrollspys.forEach(current => {
+        let _ = current;
+        let currentElementOffset = _.offsetTop - 150;
+        let scrollPosition = document.documentElement.scrollTop || document.body.scrollTop;
+        if (currentElementOffset <= scrollPosition + linksHeight) {
+          allLinks.forEach(currentLink => {
+            currentLink.parentElement.classList.remove("js-current");
+            currentLink.parentElement.removeAttribute("class");
+          });
+          const currentID = current.getAttribute("id");
+          document.querySelector(`a[href="#${currentID}"]`).parentElement.classList.add("js-current");
+          treatmentsDropdownTrigger.firstChild.textContent = document.querySelector(".treatments-sidebar li.js-current a").textContent
+        }
+      });
+    }
+
+    window.addEventListener("scroll", () => {
+      scrollspy()
+    });
+  } else {
+    null
+  }
 
   // Scroll to contacts-form
-  const links = document.querySelectorAll(".header-contacts__link");
+  const linksScroll = document.querySelectorAll(".scroll__link");
 
-  for (const link of links) {
+  for (const link of linksScroll) {
     link.addEventListener("click", clickHandler);
   }
 
@@ -91,7 +173,7 @@ window.onload = () => {
     const offsetTop = document.querySelector(href).offsetTop;
 
     scroll({
-      top: offsetTop - 100,
+      top: offsetTop - 150,
       behavior: "smooth"
     });
   }
@@ -111,28 +193,29 @@ window.onload = () => {
     }
   });
 
-  // Tabs
-  for (let i = 0; i < tabItem.length; i++) {
-    tabItem[i].addEventListener("click", () => {
+  // // Tabs
+  // for (let i = 0; i < tabItem.length; i++) {
+  //   tabItem[i].addEventListener("click", () => {
 
-      tabContent.forEach((item) => {
-        item.classList.remove("js-active");
-      });
+  //     tabContent.forEach((item) => {
+  //       item.classList.remove("js-active");
+  //     });
 
-      tabItem.forEach((item) => {
-        item.classList.remove("js-active");
-      });
+  //     tabItem.forEach((item) => {
+  //       item.classList.remove("js-active");
+  //     });
 
-      tabContent[i].classList.add("js-active");
-      tabItem[i].classList.add("js-active");
+  //     tabContent[i].classList.add("js-active");
+  //     tabItem[i].classList.add("js-active");
 
-      tabDropdownTrigger.textContent = document.querySelector(".tabs__trigger.js-active").textContent
-    });
-  } 
+  //     tabDropdownTrigger.textContent = document.querySelector(".tabs__trigger.js-active").textContent
+  //   });
+  // } 
   
-  if (tabDropdownTrigger) {
-    tabDropdownTrigger.textContent = document.querySelector(".tabs__trigger.js-active").textContent
-  }
+  // if (tabDropdownTrigger) {
+  //   tabDropdownTrigger.textContent = document.querySelector(".tabs__trigger.js-active").textContent
+  // }
+
   // Custom scrollbar in tooth table
   OverlayScrollbars(document.querySelectorAll(".tooth"), {});
 
@@ -300,33 +383,78 @@ window.onload = () => {
       })
     }
 
-    
     // Treatments page tabs navigation
-    if (treatmentsDropdown && treatmentsDropdownList) {
-      let offsetItem = document.querySelector('.dropdown__list').offsetHeight
-      document.documentElement.style.setProperty("--treatments-dropdown-offset", offsetItem + "px")
-      window.addEventListener("scroll", () => {
+    // let treatmentsDropdown = document.querySelector(".treatments .dropdown");
+    // let treatmentsDropdownList = document.querySelector(".treatments .dropdown__list");
+
+    // if (treatmentsDropdown && treatmentsDropdownList) {
+    //   let offsetItem = document.querySelector('.dropdown__list').offsetHeight
+    //   document.documentElement.style.setProperty("--treatments-dropdown-offset", offsetItem + "px")
+    
+    //   window.addEventListener("scroll", () => {
         
+    //     if (window.scrollY > offsetItem + 64 ) {
+    //       treatmentsDropdown.classList.add("js-scroll-down");
+    //       treatmentsDropdownList.style.display = 'none'
+    //       document.querySelector('.treatments').classList.add("offset-top")
+    //     } else {
+    //       treatmentsDropdown.classList.remove("js-scroll-down");
+    //       treatmentsDropdownList.style.display = 'block'
+    //       document.querySelector('.treatments').classList.remove("offset-top")
+    //     }
+    //   });
+
+    //   treatmentsDropdown.addEventListener('click', () => {
+    //     if (treatmentsDropdown.classList.contains("js-scroll-down")) {
+    //       slideToggle(treatmentsDropdownList, 300);
+    //     } else {
+    //       null
+    //     }
+    //   });
+    // }
+
+    if (treatmentsDropdownTrigger && treatmentsDropdownItem) {
+      let offsetItem = treatmentsDropdownItem.offsetHeight
+      document.documentElement.style.setProperty("--treatments-dropdown-offset", offsetItem + "px");
+      
+      window.addEventListener("scroll", () => {
         if (window.scrollY > offsetItem + 64 ) {
-          treatmentsDropdown.classList.add("js-scroll-down");
-          treatmentsDropdownList.style.display = 'none'
-          document.querySelector('.treatments').classList.add("offset-top")
+          treatmentsSidebar.classList.add("js-scroll-down");
+          treatments.classList.add("offset-top");
+          treatmentsDropdownItem.style.display = "none";
+
+          if (treatmentsSidebar.classList.contains("js-scroll-down")) {
+
+            for (let i = 0; i < treatmentsSidebarLink.length; i++) {
+              treatmentsSidebarLink[i].addEventListener("click", () => {
+                treatmentsSidebarLink.forEach((element) => {
+                  element.parentElement.classList.remove("js-current")
+                  element.parentElement.removeAttribute("class")
+                });
+
+                treatmentsSidebarLink[i].parentElement.classList.add("js-current");
+
+                treatmentsDropdownTrigger.firstChild.textContent = treatmentsSidebarLink[i].textContent
+              });
+            }
+          }
+
         } else {
-          treatmentsDropdown.classList.remove("js-scroll-down");
-          treatmentsDropdownList.style.display = 'block'
-          document.querySelector('.treatments').classList.remove("offset-top")
+          treatmentsSidebar.classList.remove("js-scroll-down");
+          treatmentsDropdownItem.style.display = "block";
+          treatments.classList.remove("offset-top");
         }
       });
 
-      treatmentsDropdown.addEventListener('click', () => {
-        if (treatmentsDropdown.classList.contains("js-scroll-down")) {
-          slideToggle(treatmentsDropdownList, 300);
-        } else {
-          null
-        }
+      treatmentsSidebar.addEventListener("click", () => {
+        treatmentsDropdownTrigger.classList.toggle("js-active")
+        slideToggle(treatmentsDropdownItem, 300)
       });
+
+      treatmentsDropdownTrigger.firstChild.textContent = document.querySelector(".treatments-sidebar li.js-current a").textContent
     }
 
+    
 
     // Opening mobile menu with burger
     burger.addEventListener("click", () => {

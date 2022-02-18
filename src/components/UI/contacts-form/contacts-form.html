@@ -1,4 +1,4 @@
-<section id="contacts-form" class="contacts-form">
+<section id="contacts-form" class="contacts-form" role="form">
   <div class="container">
     <div class="section-header">
       <h2>Contacts us</h2>
@@ -8,9 +8,9 @@
     </div>
     <form action="" class="form">
       @@loop('../../UI/form-field.html', [
-        { "type": "text", "placeholder": "Name", "attr": "required" },
-        { "type": "tel", "placeholder": "Phone", "attr": "required" },
-        { "type": "email", "placeholder": "Email", "attr": "required" },
+        { "type": "text", "name": "user_name", "placeholder": "Name", "attr": "" },
+        { "type": "tel", "name": "user_phone", "placeholder": "Phone", "attr": "" },
+        { "type": "email", "name": "user_email", "placeholder": "Email", "attr": "" },
       ])
       <select id="mounth">
         <option value="hide">Dental issue</option>

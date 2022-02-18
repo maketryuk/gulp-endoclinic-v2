@@ -35,6 +35,16 @@
       &:not(:last-child) {
         margin-right: 16px;
       }
+      &.invalid {
+        .tooth {
+          &__image {
+            img,
+            source {
+              filter: invert(54%) sepia(87%) saturate(7044%) hue-rotate(347deg) brightness(93%) contrast(89%);
+            }
+          }
+        }
+      }
     }
     &__image {
       display: block;
@@ -160,7 +170,9 @@
       height: 100%;
       border: 1px solid $color-white;
       border-radius: 10px;
+      transition: $transition-normal;
       &__name {
+        cursor: default;
         overflow: hidden;
         text-overflow: ellipsis;
         display: -webkit-box;
@@ -171,17 +183,32 @@
         font-size: 16px;
         font-weight: 400;
         line-height: 1.5;
+        transition: $transition-normal;
       }
       .icon-file {
         color: $color-white;
         font-size: 36px;
         margin-right: 12px;
+        transition: $transition-normal;
       }
       .icon-trash-can {
         cursor: pointer;
         margin-left: auto;
         color: #E12C2C;
         font-size: 24px;
+      }
+      &:hover {
+        background: $color-white;
+        .files {
+          &-item {
+            &__name {
+              color: $color-gold-1;
+            }
+          }
+        }
+        .icon-file {
+          color: $color-gold-1;
+        }
       }
     }
   }

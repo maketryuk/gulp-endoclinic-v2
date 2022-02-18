@@ -34,11 +34,38 @@
     line-height: 1.5;
     border-bottom: 1px solid $color-white;
     transition: $transition-normal;
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover, 
+    &:-webkit-autofill:focus,
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus,
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus {
+      -webkit-text-fill-color: $color-white;
+      -webkit-box-shadow: 0 0 0px 1000px $color-background inset;
+      transition: background-color 5000s ease-in-out 0s;
+    }
     &::placeholder {
       color: $color-white;
     }
     &:focus {
       border-color: $color-green-1;
+    }
+    &::-webkit-calendar-picker-indicator {
+      filter: invert(1);
+      cursor: pointer;
+    }
+    &.invalid {
+      border-color: #E12C2C;
+      &::placeholder {
+        color: #E12C2C;
+      }
+      &::-webkit-calendar-picker-indicator {
+        filter: invert(54%) sepia(87%) saturate(7044%) hue-rotate(347deg) brightness(93%) contrast(89%);
+      }
+      color: #E12C2C;
     }
     &.message {
       overflow:hidden;

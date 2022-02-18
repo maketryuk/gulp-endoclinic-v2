@@ -8,20 +8,20 @@
         <div class="form-wrapper">
           <h3>Referring dentist</h3>
           @@loop('../../../UI/form-field.html', [
-            { "type": "text", "placeholder": "Dentist's full name", "attr": "required" },
-            { "type": "text", "placeholder": "Practice name and address", "attr": "required" },
-            { "type": "email", "placeholder": "Email", "attr": "required" },
-            { "type": "tel", "placeholder": "Phone", "attr": "required" },
-            { "type": "text", "placeholder": "GDC number", "attr": "required" }
+            { "type": "text", "name": "dentist_name", "placeholder": "Dentist's full name", "attr": "" },
+            { "type": "text", "name": "dentist_address", "placeholder": "Practice name and address", "attr": "" },
+            { "type": "email", "name": "dentist_email", "placeholder": "Email", "attr": "" },
+            { "type": "tel", "name": "dentist_phone", "placeholder": "Phone", "attr": "" },
+            { "type": "text", "name": "dentist_gdc", "placeholder": "GDC number", "attr": "" }
           ])
         </div>
         <div class="form-wrapper">
           <h3>Patient details</h3>
           @@loop('../../../UI/form-field.html', [
-            { "type": "text", "placeholder": "Patient's name", "attr": "required" },
-            { "type": "text", "placeholder": "Date of birth", "attr": "required" },
-            { "type": "email", "placeholder": "Email", "attr": "required" },
-            { "type": "tel", "placeholder": "Phone", "attr": "required" },
+            { "type": "text", "name": "user_name", "placeholder": "Patient's name", "attr": "" },
+            { "type": "date", "name": "user_datebirth", "placeholder": "Date of birth", "attr": "" },
+            { "type": "email", "name": "user_email", "placeholder": "Email", "attr": "" },
+            { "type": "tel", "name": "user_phone", "placeholder": "Phone", "attr": "" },
           ])
         </div>
       </div>
