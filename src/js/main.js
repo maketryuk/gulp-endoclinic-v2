@@ -1,7 +1,7 @@
 // Scroll to the top before the page loads
-window.onbeforeunload = function () {
-  window.scrollTo(0, 0);
-}
+// window.onbeforeunload = function () {
+//   window.scrollTo(0, 0);
+// }
 
 let slideUp = (target, duration=500) => {
 
